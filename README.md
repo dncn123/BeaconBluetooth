@@ -1,6 +1,6 @@
 # BeaconBluetooth
 
-IMPORTANT: the only thing truly worth looking at in this repo in Plots/point_1_posterior.png!
+IMPORTANT: the only thing truly worth looking at in this repo is Plots/point_1_posterior.png!
 
 Building location prediction model from kaggle dataset the bayesian way.
 
