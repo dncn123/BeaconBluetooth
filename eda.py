@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pymc as pm
 from pymc.Matplot import plot as mcplot
 from functions import TwoCirclesInters, bayes_lin_regr, CircleCrosses
-data = pd.read_csv("beacon_readings.csv")
+data = pd.read_csv("Data/beacon_readings.csv")
 del data["Date"]
 del data["Time"]
 
@@ -44,7 +44,7 @@ plt.scatter(data['Signal_A'], data['Distance_A'], label='A')
 plt.scatter(data['Signal_B'], data['Distance_B'], label='B')
 plt.scatter(data['Signal_C'], data['Distance_C'], label='C')
 plt.legend()
-plt.savefig("singal_to_distance.png")
+plt.savefig("Plots/singal_to_distance.png")
 plt.clf()
 
 # Each detector looks like it has it's own calibration 
@@ -70,11 +70,11 @@ names = ["mcmcA", "mcmcB", "mcmcC"]
 for i, mcmc in enumerate([mcmcA, mcmcB, mcmcC]):
 	trc = getattr(mcmc, "trace")
 	mcplot(trc('alpha'))
-	plt.savefig(names[i]+"_alpha.png")
+	plt.savefig("Plots/"+names[i]+"_alpha.png")
 	mcplot(trc('beta'))
-	plt.savefig(names[i]+"_beta.png")
+	plt.savefig("Plots/"+names[i]+"_beta.png")
 	mcplot(trc('error'))
-	plt.savefig(names[i]+"_error.png")
+	plt.savefig("Plots/"+names[i]+"_error.png")
 
 # Now we need a function that can take the 3 circles
 # and estimate where they all cross
@@ -136,7 +136,7 @@ for r in RsC:
 ax.scatter(Position_X_, Position_Y_, 
 			color='r', label="true_position")
 plt.legend()
-plt.savefig("point_1_posterior.png")
+plt.savefig("Plots/point_1_posterior.png")
 
 
 
